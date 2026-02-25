@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joel Cooper - Business Systems & Operations</title>
+    <meta name="description" content="Practical business coaching for owners who are tired of being stuck in the weeds. Real results, no fluff.">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1e293b;
+            --navy-dark: #0f172a;
+            --rust: #c2410c;
+            --rust-light: #ea580c;
+            --cream: #fefce8;
+            --gray: #64748b;
+            --text: #334155;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: #fff;
+        }
+
+        /* Mobile-First Navigation */
+        nav {
+            background: var(--navy);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: var(--rust-light);
+        }
+
+        .nav-cta {
+            display: none;
+        }
+
+        .mobile-menu {
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero - Mobile First */
+        .hero {
+            background: var(--navy);
+            color: #fff;
+            padding: 3rem 1rem 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Source Serif Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 em {
+            color: var(--rust-light);
+            font-style: italic;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--rust);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--rust-light);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.3);
+            margin-top: 1rem;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--rust-light);
+            color: var(--rust-light);
+        }
+
+        /* Trust Bar */
+        .trust {
+            background: var(--cream);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .trust p {
+            font-size: 0.875rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .trust-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            opacity: 0.7;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Story */
+        .story {
+            padding: 3rem 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .story h2 {
+            font-family: 'Source Serif Pro', Georgia, serif;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .story h2 em {
+            color: var(--rust);
+            font-style: italic;
+        }
+
+        .story p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .story-link {
+            color: var(--rust);
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 2px solid currentColor;
+        }
+
+        .story-link:hover {
+            color: var(--rust-light);
+        }
+
+        /* Services */
+        .services {
+            background: #f8fafc;
+            padding: 3rem 1rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Source Serif Pro', Georgia, serif;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 2rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--rust);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .price-note {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--navy);
+            color: #fff;
+            padding: 3rem 1rem;
+        }
+
+        .testimonials h2 {
+            font-family: 'Source Serif Pro', Georgia, serif;
+            text-align: center;
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+        }
+
+        .testimonial-role {
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--rust);
+            color: #fff;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: 'Source Serif Pro', Georgia, serif;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            background: #fff;
+            color: var(--rust);
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-dark);
+            color: rgba(255,255,255,0.7);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--rust-light);
+            text-decoration: none;
+        }
+
+        /* Desktop */
+        @media (min-width: 768px) {
+            .nav-links, .nav-cta {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            .hero {
+                padding: 5rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+            }
+
+            .btn-secondary {
+                margin-top: 0;
+                margin-left: 1rem;
+            }
+
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+
+            .testimonial-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Joel Cooper</a>
+            <div class="mobile-menu">☰</div>
+            <div class="nav-links">
+                <a href="#work">Work With Me</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="#contact" class="nav-cta">Book a Call</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Too busy working <em>in</em> your business to work <em>on</em> it?</h1>
+        <p>I help owners build systems that actually work—so you can stop firefighting and start leading. Practical stuff, no fluff.</p>
+        <a href="#contact" class="btn btn-primary">Let's Talk</a>
+        <a href="#work" class="btn btn-secondary">What I Do</a>
+    </section>
+
+    <section class="trust">
+        <p>Trusted by business owners in</p>
+        <div class="trust-logos">
+            <span>Manufacturing</span>
+            <span>Construction</span>
+            <span>Professional Services</span>
+        </div>
+    </section>
+
+    <section class="story" id="about">
+        <h2>Here's the thing: most business owners are exhausted—<em>and it doesn't have to be that way.</em></h2>
+        
+        <p>I've spent 10+ years helping owners get out of the daily grind. Before that, I built and ran operations teams. I know what it looks like when everything depends on the owner showing up every day. It's not sustainable.</p>
+        
+        <p>The businesses that scale? They have systems. Clear accountability. People who know their jobs and actually do them. That's what I help you build.</p>
+        
+        <p>Not theory. Not motivational fluff. Real, practical systems you can use Monday morning.</p>
+        
+        <a href="#contact" class="story-link">Book a call →</a>
+    </section>
+
+    <section class="services" id="work">
+        <div class="section-header">
+            <h2>How I Can Help</h2>
+            <p>Three ways to work together, depending on what you need.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>1. EOS Implementation</h3>
+                <p>The Entrepreneurial Operating System—vision, accountability, meetings that actually work. Get your leadership team aligned and executing.</p>
+                <div class="price">$15,000</div>
+                <div class="price-note">90-day intensive</div>
+            </div>
+
+            <div class="service-card">
+                <h3>2. Business Coaching</h3>
+                <p>Monthly 1:1 sessions. Weekly accountability. Someone in your corner who's been there and can help you navigate the hard stuff.</p>
+                <div class="price">$2,500/mo</div>
+                <div class="price-note">12-month commitment</div>
+            </div>
+
+            <div class="service-card">
+                <h3>3. Operations Audit</h3>
+                <p>Deep dive into your systems. Where you're bleeding time and money. A clear roadmap to fix it. No BS.</p>
+                <div class="price">$5,000</div>
+                <div class="price-note">2-week turnaround</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What People Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>"Joel helped us implement EOS and our leadership team finally stopped pointing fingers at each other. We're actually hitting quarterly goals now."</p>
+                <div class="testimonial-author">Brian Davis</div>
+                <div class="testimonial-role">Director of Operations, Safe Slide</div>
+            </div>
+
+            <div class="testimonial">
+                <p>"I was working 70 hours and drowning. Joel showed me how to hire an operations manager and actually delegate. Got my life back."</p>
+                <div class="testimonial-author">Scott Parsons</div>
+                <div class="testimonial-role">Business Owner</div>
+            </div>
+
+            <div class="testimonial">
+                <p>"Practical, no-nonsense advice. Left with actual tools I could use Monday morning."</p>
+                <div class="testimonial-author">Focus Forum Attendee</div>
+                <div class="testimonial-role">St. Louis, 2025</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <h2>Ready to get your business under control?</h2>
+        <p>30-minute strategy call. We'll talk about your biggest challenge and see if we're a fit.</p>
+        <a href="mailto:joel@joelcooper.com" class="btn-white">Book Your Call</a>
+    </section>
+
+    <footer>
+        <p>Joel Cooper | <a href="tel:573-222-0021">573-222-0021</a> | <a href="mailto:joel@joelcooper.com">joel@joelcooper.com</a></p>
+        <p style="margin-top: 1rem; opacity: 0.7;">Built for business owners who want results, not theory.</p>
+    </footer>
+</body>
+</html>
